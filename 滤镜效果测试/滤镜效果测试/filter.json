@@ -121,7 +121,7 @@
                 "type": "NSNumber",
                 "defaultValues": [0.50],
                 "max":[2],
-                "min":[0]
+                "min":[-2]
             }
         ]
     },

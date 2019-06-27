@@ -572,7 +572,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GRKVA79T4K;
-				GCC_PREFIX_HEADER = "/Users/zhaotaoyuan/Desktop/日常小Demo/滤镜效果测试/滤镜效果测试/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "滤镜效果测试/PrefixHeader.pch";
 				INFOPLIST_FILE = "滤镜效果测试/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -592,7 +592,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GRKVA79T4K;
-				GCC_PREFIX_HEADER = "/Users/zhaotaoyuan/Desktop/日常小Demo/滤镜效果测试/滤镜效果测试/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "滤镜效果测试/PrefixHeader.pch";
 				INFOPLIST_FILE = "滤镜效果测试/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
