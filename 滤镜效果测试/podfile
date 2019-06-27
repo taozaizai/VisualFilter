@@ -1,0 +1,7 @@
+
+
+target '滤镜效果测试' do
+
+pod 'YYModel', '~> 1.0.4'
+
+end

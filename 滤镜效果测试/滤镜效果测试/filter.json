@@ -1,0 +1,161 @@
+[
+    {
+        "filterName":"CIHueAdjust",
+        "attributes":[
+            {
+                "name": "inputAngle",
+                "type": "NSNumber",
+                "defaultValues": [0],
+                "max":[6.28],
+                "min":[-6.28]
+            }
+        ]
+    },
+    {
+        "filterName":"CIColorControls",
+        "attributes":[
+            {
+                "name": "inputSaturation",
+                "type": "NSNumber",
+                "defaultValues": [0],
+                "max":[2],
+                "min":[-2]
+            },
+            {
+                "name": "inputBrightness",
+                "type": "NSNumber",
+                "defaultValues": [0],
+                "max":[2],
+                "min":[-2]
+            },
+            {
+                "name": "inputContrast",
+                "type": "NSNumber",
+                "defaultValues": [0],
+                "max":[2],
+                "min":[-2]
+            }
+        ]
+    },
+    {
+        "filterName":"CIColorPolynomial",
+        "attributes":[
+            {
+                "name": "inputRedCoefficients",
+                "type": "CIVector",
+                "defaultValues": [0,1,0,0],
+                "max":[1,5,2,2],
+                "min":[-1,-5,-2,-2]
+            },
+            {
+                "name": "inputGreenCoefficients",
+                "type": "CIVector",
+                "defaultValues": [0,1,0,0],
+                "max":[1,5,2,2],
+                "min":[-1,-5,-2,-2]
+            },
+            {
+                "name": "inputBlueCoefficients",
+                "type": "CIVector",
+                "defaultValues": [0,1,0,0],
+                "max":[1,5,2,2],
+                "min":[-1,-5,-2,-2]
+            },
+            {
+                "name": "inputAlphaCoefficients",
+                "type": "CIVector",
+                "defaultValues": [0,1,0,0],
+                "max":[1,2,2,2],
+                "min":[-1,-2,-2,-2]
+            }
+        ]
+    },
+    {
+        "filterName":"CIWhitePointAdjust",
+        "attributes":[
+            {
+                "name": "inputColor",
+                "type": "CIColor",
+                "defaultValues": [0,0,0],
+                "max":[1,1,1],
+                "min":[0,0,0]
+            }
+        ]
+    },
+    {
+        "filterName":"CIDiscBlur",
+        "attributes":[
+            {
+                "name": "inputRadius",
+                "type": "NSNumber",
+                "defaultValues": [8],
+                "max":[50],
+                "min":[-50]
+            }
+        ]
+    },
+    {
+        "filterName":"CIColorClamp",
+        "attributes":[
+            {
+                "name": "inputMinComponents",
+                "type": "CIVector",
+                "defaultValues": [0,0,0,0],
+                "max":[1,1,1,1],
+                "min":[0,0,0,0]
+            },
+            {
+                "name": "inputMaxComponents",
+                "type": "CIVector",
+                "defaultValues": [1,1,1,1],
+                "max":[1,1,1,1],
+                "min":[0,0,0,0]
+            }
+        ]
+    },
+    {
+        "filterName":"CIExposureAdjust",
+        "attributes":[
+            {
+                "name": "inputEV",
+                "type": "NSNumber",
+                "defaultValues": [0.50],
+                "max":[2],
+                "min":[0]
+            }
+        ]
+    },
+    {
+        "filterName":"CIGammaAdjust",
+        "attributes":[
+            {
+                "name": "inputPower",
+                "type": "NSNumber",
+                "defaultValues": [0.75],
+                "max":[2],
+                "min":[0]
+            }
+        ]
+    },
+    {
+        "filterName":"CITemperatureAndTint",
+        "attributes":[
+            {
+                "name": "inputNeutral",
+                "type": "CIVector",
+                "defaultValues": [6500,0],
+                "max":[10000,100],
+                "min":[0,0]
+            },
+            {
+                "name": "inputTargetNeutral",
+                "type": "CIVector",
+                "defaultValues": [6500,0],
+                "max":[10000,100],
+                "min":[0,0]
+            }
+        ]
+    },
+    
+]
+
