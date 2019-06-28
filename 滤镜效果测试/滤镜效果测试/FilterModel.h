@@ -16,9 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *type;
-@property (nonatomic, copy) NSArray <NSNumber *> *defaultValues;
-@property (nonatomic, copy) NSArray <NSNumber *> *max;
-@property (nonatomic, copy) NSArray <NSNumber *> *min;
+@property (nonatomic, copy) NSArray *defaultValues;
+@property (nonatomic, copy) NSArray *max;
+@property (nonatomic, copy) NSArray *min;
 
 
 @end

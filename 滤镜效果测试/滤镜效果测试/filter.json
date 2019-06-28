@@ -156,6 +156,63 @@
             }
         ]
     },
-    
+    {
+        "filterName":"CIKaleidoscope",
+        "attributes":[
+            {
+                "name": "inputCount",
+                "type": "NSNumber",
+                "defaultValues": [6],
+                "max":[20],
+                "min":[1]
+            },
+            {
+                "name": "inputCenter",
+                "type": "CIVector",
+                "defaultValues": [150,150],
+                "max":[1000,1000],
+                "min":[0,0]
+            },
+            {
+                "name": "inputAngle",
+                "type": "NSNumber",
+                "defaultValues": [0],
+                "max":[6.28],
+                "min":[-6.28]
+            },
+        ]
+    },
+    {
+        "filterName":"CIBlendWithMask",
+        "attributes":[
+            {
+                "name": "inputBackgroundImage",
+                "type": "CIImage",
+                "defaultValues": ["bg.png"]
+            },
+            {
+                "name": "inputMaskImage",
+                "type": "CIImage",
+                "defaultValues": ["mark.png"]
+            }
+        ]
+    },
+    {
+        "filterName":"CIEdges",
+        "attributes":[
+            {
+                "name": "inputIntensity",
+                "type": "NSNumber",
+                "defaultValues": [1.00],
+                "max":[20],
+                "min":[0]
+            }
+        ]
+    },
+    {
+        "filterName":"CIPhotoEffectNoir",
+        "attributes":[
+        ]
+    },
 ]
 

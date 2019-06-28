@@ -55,6 +55,9 @@
     CGFloat gap = 10;
     NSMutableArray *tmpArr = [NSMutableArray array];
     for (FilterAttribute *attribute in self.filter.attributes) {
+        if ([attribute.type isEqualToString:@"CIImage"]) {
+            return;
+        }
         AttributeAjustView *justV = [[AttributeAjustView alloc] initWithFilterAttribute:attribute];
         [self.sc addSubview:justV];
         justV.frame = CGRectMake(0, y, alert_width, justV.bounds.size.height);
@@ -74,6 +77,22 @@
 
 - (NSArray *)getParas {
     NSMutableArray *paras = [[NSMutableArray alloc] init];
+    
+    //不可量化指标
+    for (FilterAttribute *attribute in self.filter.attributes) {
+        if ([attribute.type isEqualToString:@"CIImage"]) {
+            NSString *fileName = attribute.defaultValues.firstObject;
+            NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:nil];
+            if (path) {
+                CIImage *image = [CIImage imageWithContentsOfURL:[NSURL fileURLWithPath:path]];
+                if (image) {
+                    [paras addObject:@{attribute.name: image}];
+                }
+            }
+        }
+    }
+    
+    //可量化指标
     for (AttributeAjustView *justV in self.paraViews) {
         id value =  [justV getValue];
         if (value) {

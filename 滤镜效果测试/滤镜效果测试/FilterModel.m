@@ -11,7 +11,7 @@
 @implementation FilterAttribute
 
 + (nullable NSDictionary<NSString *, id> *)modelContainerPropertyGenericClass {
-    return @{@"defaultValues": [NSNumber class],
+    return @{@"defaultValues": [NSObject class],
              @"max" : [NSNumber class],
              @"min" : [NSNumber class],
              };
