@@ -214,5 +214,55 @@
         "attributes":[
         ]
     },
+    {
+        "filterName":"CISRGBToneCurveToLinear",
+        "attributes":[
+        ]
+    },
+    {
+        "filterName":"CILinearToSRGBToneCurve",
+        "attributes":[
+        ]
+    },
+    {
+        "filterName":"CIColorMatrix",
+        "attributes":[
+            {
+                "name": "inputRVector",
+                "type": "CIVector",
+                "defaultValues": [1,0,0,0],
+                "max":[1,1,1,1],
+                "min":[0,0,0,0]
+            },
+            {
+                "name": "inputGVector",
+                "type": "CIVector",
+                "defaultValues": [0,1,0,0],
+                "max":[1,1,1,1],
+                "min":[0,0,0,0]
+            },
+            {
+                "name": "inputBVector",
+                "type": "CIVector",
+                "defaultValues": [0,0,1,0],
+                "max":[1,1,1,1],
+                "min":[0,0,0,0]
+            },
+            {
+                "name": "inputAVector",
+                "type": "CIVector",
+                "defaultValues": [0,0,0,1],
+                "max":[1,1,1,1],
+                "min":[0,0,0,0]
+            },
+            {
+                "name": "inputBiasVector",
+                "type": "CIVector",
+                "defaultValues": [0,0,0,0],
+                "max":[1,1,1,1],
+                "min":[-1,-1,-1,-1]
+            }
+        ]
+    },
 ]
 

@@ -23,6 +23,10 @@
 @property (nonatomic, strong) UIImage *currentImg;
 @property (nonatomic, strong) UIImage *tmpImg;
 
+//记录参数
+@property (nonatomic, strong) NSMutableDictionary *filtersPara;
+@property (nonatomic, strong) NSArray *currentPara;
+
 @end
 
 @implementation ViewController
@@ -30,6 +34,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    self.filtersPara = [[NSMutableDictionary alloc] init];
     
     NSString *json = [[NSBundle mainBundle] pathForResource:@"filter.json" ofType:nil];
     NSData *data = [NSData dataWithContentsOfFile:json];
@@ -51,6 +57,13 @@
     [resetBtn setTitle:@"重置" forState:UIControlStateNormal];
     [resetBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.view addSubview:resetBtn];
+    
+    UIButton *getParaBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [getParaBtn addTarget:self action:@selector(showParas) forControlEvents:UIControlEventTouchUpInside];
+    getParaBtn.frame = CGRectMake(40, 20, 60, 44);
+    [getParaBtn setTitle:@"参数" forState:UIControlStateNormal];
+    [getParaBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.view addSubview:getParaBtn];
     
     CGFloat top = 84;
     CGFloat iw = 154;
@@ -77,10 +90,37 @@
     [self resetImg];
 }
 
+- (void)showParas {
+    NSMutableDictionary *tmpDic = [NSMutableDictionary dictionaryWithDictionary:self.filtersPara];
+    
+    if (self.selFilter) {
+        [tmpDic setObject:self.currentPara ? : @[] forKey:self.selFilter.filterName];
+    }
+    NSMutableString *msg = @"".mutableCopy;
+    for (NSString *name in tmpDic.allKeys) {
+        NSArray *paras = tmpDic[name];
+        [msg appendFormat:@"filterName: %@;", name];
+        for (NSDictionary *dic in paras) {
+            NSString *dicStr = dic.description;
+            [msg appendString:dicStr];
+            [msg appendString:@";"];
+        }
+        [msg appendString:@"\n"];
+     }
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:msg preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [alert dismissViewControllerAnimated:YES completion:nil];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 - (void)resetImg {
     self.currentImg = [UIImage imageNamed:@"0.jpg"];
     self.tmpImg = self.currentImg;
     self.myImg.image = self.currentImg;
+    [self.filtersPara removeAllObjects];
+    self.currentPara = nil;
+    self.selFilter = nil;
 }
 
 - (void)gotoSelTargetImg {
@@ -110,8 +150,13 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    FilterModel *filter = self.dataSource[indexPath.row];
+    if (self.selFilter) {
+        [self.filtersPara setObject:self.currentPara ? : @[] forKey:self.selFilter.filterName];
+        self.currentPara = nil;
+    }
     self.currentImg = self.tmpImg;
-    self.selFilter = self.dataSource[indexPath.row];
+    self.selFilter = filter;
     [self showParaJustView];
 }
 
@@ -145,8 +190,8 @@
     if (processImage!=nil) {
         self.myImg.image = processImage;
         self.tmpImg = processImage;
+        self.currentPara = paras;
     }
-    
 }
 
 #pragma mark - TargetViewControllerDelegate
